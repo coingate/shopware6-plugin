@@ -1,0 +1,42 @@
+{
+  "name": "coingate/shopware6-plugin",
+  "description": "CoinGate Payment gateway integration for Shopware 6",
+  "version": "1.0.0",
+  "type": "shopware-platform-plugin",
+  "extra": {
+    "shopware-plugin-class": "CoinGatePayment\\CoinGatePayment",
+    "plugin-icon": "src/Resources/config/plugin.png",
+    "copyright": "(c) CoinGate",
+    "label": {
+      "de-DE": "CoinGate Payment Plugin",
+      "en-GB": "CoinGate Payment Plugin"
+    },
+    "description": {
+      "de-DE": "Official Shopware 6 Plugin to accept cryptocurrency payments using CoinGate Payment gateway.",
+      "en-GB": "Official Shopware 6 Plugin to accept cryptocurrency payments using CoinGate Payment gateway."
+    },
+    "manufacturerLink": {
+      "de-DE": "https://coingate.com",
+      "en-GB": "https://coingate.com"
+    },
+    "supportLink": {
+      "en-GB": "https://support.coingate.com",
+      "de-DE": "https://support.coingate.com"
+    }
+  },
+  "license": "MIT",
+  "require": {
+    "coingate/coingate-php": "^4.1"
+  },
+  "authors": [
+    {
+      "name": "CoinGate"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "CoinGatePayment\\": "src/",
+      "CoinGate\\": "vendor/coingate/coingate-php/lib"
+    }
+  }
+}

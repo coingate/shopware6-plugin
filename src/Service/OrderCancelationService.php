@@ -1,8 +1,8 @@
 <?php
 
-namespace CoinGatePayment\Service;
+namespace CoinGatePayment\Shopware6\Service;
 
-use CoinGatePayment\PaymentHandler\CoinGatePaymentHandler;
+use CoinGatePayment\Shopware6\Shopware6\PaymentHandler\CoinGatePaymentHandler;
 use Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionEntity;
 use Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler;
 use Shopware\Core\Framework\Context;
@@ -17,17 +17,17 @@ class OrderCancelationService
     /**
      * @var ClientApiService
      */
-    private ClientApiService $clientApiService;
+    private $clientApiService;
 
     /**
      * @var OrderTransactionStateHandler
      */
-    private OrderTransactionStateHandler $orderTransactionStateHandler;
+    private $orderTransactionStateHandler;
 
     /**
      * @var EntityRepositoryInterface
      */
-    private EntityRepositoryInterface $stateMachineStateRepository;
+    private $stateMachineStateRepository;
 
     /**
      * @param ClientApiService $clientApiService

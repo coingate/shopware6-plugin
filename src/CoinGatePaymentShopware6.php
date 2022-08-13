@@ -1,8 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace CoinGatePayment;
+namespace CoinGatePayment\Shopware6;
 
-use CoinGatePayment\Installer\PaymentMethodInstaller;
+// phpcs:disable
+require_once(__DIR__ . '/../vendor/autoload.php');
+// phpcs:enable
+
+use CoinGatePayment\Shopware6\Shopware6\Installer\PaymentMethodInstaller;
 use Shopware\Core\Framework\Plugin;
 use Shopware\Core\Framework\Plugin\Context\ActivateContext;
 use Shopware\Core\Framework\Plugin\Context\DeactivateContext;
@@ -11,11 +15,7 @@ use Shopware\Core\Framework\Plugin\Context\UninstallContext;
 use Shopware\Core\Framework\Plugin\Context\UpdateContext;
 use Shopware\Core\Framework\Plugin\Util\PluginIdProvider;
 
-if (file_exists(dirname(__DIR__) . '/vendor/autoload.php')) {
-    require_once dirname(__DIR__) . '/vendor/autoload.php';
-}
-
-class CoinGatePayment extends Plugin
+class CoinGatePaymentShopware6 extends Plugin
 {
     public function install(InstallContext $context): void
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace CoinGatePayment\Controller\Api;
+namespace CoinGatePayment\Shopware6\Controller\Api;
 
 use Shopware\Core\Framework\Validation\DataBag\RequestDataBag;
 use Symfony\Component\HttpFoundation\JsonResponse;

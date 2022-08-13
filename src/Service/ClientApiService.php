@@ -1,6 +1,6 @@
 <?php
 
-namespace CoinGatePayment\Service;
+namespace CoinGatePayment\Shopware6\Service;
 
 use Shopware\Core\System\SalesChannel\SalesChannelContext;
 use Shopware\Core\System\SystemConfig\SystemConfigService;
@@ -11,7 +11,7 @@ class ClientApiService
     /**
      * @var SystemConfigService
      */
-    private SystemConfigService $systemConfigService;
+    private $systemConfigService;
 
     public function __construct(
         SystemConfigService $systemConfigService

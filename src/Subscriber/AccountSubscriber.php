@@ -1,9 +1,9 @@
 <?php
 
-namespace CoinGatePayment\Subscriber;
+namespace CoinGatePayment\Shopware6\Subscriber;
 
-use CoinGatePayment\PaymentHandler\CoinGatePaymentHandler;
-use CoinGatePayment\Service\OrderCancelationService;
+use CoinGatePayment\Shopware6\Shopware6\PaymentHandler\CoinGatePaymentHandler;
+use CoinGatePayment\Shopware6\Shopware6\Service\OrderCancelationService;
 use Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionEntity;
 use Shopware\Core\Checkout\Order\OrderEntity;
 use Shopware\Storefront\Page\Account\Order\AccountOrderPageLoadedEvent;
@@ -14,7 +14,7 @@ class AccountSubscriber implements EventSubscriberInterface
     /**
      * @var OrderCancelationService
      */
-    private OrderCancelationService $orderCancelationService;
+    private $orderCancelationService;
 
     public function __construct(
         OrderCancelationService $orderCancelationService

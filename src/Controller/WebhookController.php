@@ -1,9 +1,9 @@
 <?php
 
-namespace CoinGatePayment\Controller;
+namespace CoinGatePayment\Shopware6\Controller;
 
-use CoinGatePayment\PaymentHandler\CoinGatePaymentHandler;
-use CoinGatePayment\Service\ClientApiService;
+use CoinGatePayment\Shopware6\Shopware6\PaymentHandler\CoinGatePaymentHandler;
+use CoinGatePayment\Shopware6\Shopware6\Service\ClientApiService;
 use Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionEntity;
 use Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
@@ -26,17 +26,17 @@ class WebhookController extends StorefrontController
     /**
      * @var ClientApiService
      */
-    private ClientApiService $clientApiService;
+    private $clientApiService;
 
     /**
      * @var OrderTransactionStateHandler
      */
-    private OrderTransactionStateHandler $orderTransactionStateHandler;
+    private $orderTransactionStateHandler;
 
     /**
      * @var EntityRepositoryInterface
      */
-    private EntityRepositoryInterface $orderTransactionRepository;
+    private $orderTransactionRepository;
 
     public function __construct(
         ClientApiService $clientApiService,

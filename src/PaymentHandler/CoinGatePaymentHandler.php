@@ -1,8 +1,8 @@
 <?php
 
-namespace CoinGatePayment\PaymentHandler;
+namespace CoinGatePayment\Shopware6\PaymentHandler;
 
-use CoinGatePayment\Service\ClientApiService;
+use CoinGatePayment\Shopware6\Shopware6\Service\ClientApiService;
 use Shopware\Core\Checkout\Customer\CustomerEntity;
 use Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler;
 use Shopware\Core\Checkout\Payment\Cart\AsyncPaymentTransactionStruct;
@@ -30,27 +30,27 @@ class CoinGatePaymentHandler implements AsynchronousPaymentHandlerInterface
     /**
      * @var ClientApiService
      */
-    private ClientApiService $clientApiService;
+    private $clientApiService;
 
     /**
      * @var SystemConfigService
      */
-    private SystemConfigService $systemConfigService;
+    private $systemConfigService;
 
     /**
      * @var OrderTransactionStateHandler
      */
-    private OrderTransactionStateHandler $orderTransactionStateHandler;
+    private $orderTransactionStateHandler;
 
     /**
      * @var EntityRepositoryInterface
      */
-    private EntityRepositoryInterface $orderTransactionRepository;
+    private $orderTransactionRepository;
 
     /**
      * @var RouterInterface
      */
-    private RouterInterface $router;
+    private $router;
 
     public function __construct(
         ClientApiService $clientApiService,

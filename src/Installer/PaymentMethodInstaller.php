@@ -1,9 +1,9 @@
 <?php
 
-namespace CoinGatePayment\Installer;
+namespace CoinGatePayment\Shopware6\Installer;
 
-use CoinGatePayment\CoinGatePayment;
-use CoinGatePayment\PaymentHandler\CoinGatePaymentHandler;
+use CoinGatePayment\Shopware6\Shopware6\CoinGatePayment;
+use CoinGatePayment\Shopware6\Shopware6\PaymentHandler\CoinGatePaymentHandler;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
@@ -20,12 +20,12 @@ class PaymentMethodInstaller
     /**
      * @var PluginIdProvider
      */
-    private PluginIdProvider $pluginIdProvider;
+    private $pluginIdProvider;
 
     /**
      * @var EntityRepositoryInterface
      */
-    private EntityRepositoryInterface $paymentMethodRepository;
+    private $paymentMethodRepository;
 
     public function __construct(
         PluginIdProvider $pluginIdProvider,

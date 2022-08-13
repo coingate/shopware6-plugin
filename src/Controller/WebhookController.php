@@ -2,8 +2,8 @@
 
 namespace CoinGatePayment\Shopware6\Controller;
 
-use CoinGatePayment\Shopware6\Shopware6\PaymentHandler\CoinGatePaymentHandler;
-use CoinGatePayment\Shopware6\Shopware6\Service\ClientApiService;
+use CoinGatePayment\Shopware6\PaymentHandler\CoinGatePaymentHandler;
+use CoinGatePayment\Shopware6\Service\ClientApiService;
 use Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionEntity;
 use Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;

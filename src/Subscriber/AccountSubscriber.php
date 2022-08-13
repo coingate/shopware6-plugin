@@ -2,8 +2,8 @@
 
 namespace CoinGatePayment\Shopware6\Subscriber;
 
-use CoinGatePayment\Shopware6\Shopware6\PaymentHandler\CoinGatePaymentHandler;
-use CoinGatePayment\Shopware6\Shopware6\Service\OrderCancelationService;
+use CoinGatePayment\Shopware6\PaymentHandler\CoinGatePaymentHandler;
+use CoinGatePayment\Shopware6\Service\OrderCancelationService;
 use Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionEntity;
 use Shopware\Core\Checkout\Order\OrderEntity;
 use Shopware\Storefront\Page\Account\Order\AccountOrderPageLoadedEvent;

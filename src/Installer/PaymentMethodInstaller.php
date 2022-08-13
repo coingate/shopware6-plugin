@@ -2,8 +2,8 @@
 
 namespace CoinGatePayment\Shopware6\Installer;
 
-use CoinGatePayment\Shopware6\Shopware6\CoinGatePayment;
-use CoinGatePayment\Shopware6\Shopware6\PaymentHandler\CoinGatePaymentHandler;
+use CoinGatePayment\Shopware6\CoinGatePayment;
+use CoinGatePayment\Shopware6\PaymentHandler\CoinGatePaymentHandler;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;

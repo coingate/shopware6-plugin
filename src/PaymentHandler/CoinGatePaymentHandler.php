@@ -2,7 +2,7 @@
 
 namespace CoinGatePayment\Shopware6\PaymentHandler;
 
-use CoinGatePayment\Shopware6\Shopware6\Service\ClientApiService;
+use CoinGatePayment\Shopware6\Service\ClientApiService;
 use Shopware\Core\Checkout\Customer\CustomerEntity;
 use Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler;
 use Shopware\Core\Checkout\Payment\Cart\AsyncPaymentTransactionStruct;

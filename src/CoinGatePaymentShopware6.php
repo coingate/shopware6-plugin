@@ -6,7 +6,7 @@ namespace CoinGatePayment\Shopware6;
 require_once(__DIR__ . '/../vendor/autoload.php');
 // phpcs:enable
 
-use CoinGatePayment\Shopware6\Shopware6\Installer\PaymentMethodInstaller;
+use CoinGatePayment\Shopware6\Installer\PaymentMethodInstaller;
 use Shopware\Core\Framework\Plugin;
 use Shopware\Core\Framework\Plugin\Context\ActivateContext;
 use Shopware\Core\Framework\Plugin\Context\DeactivateContext;

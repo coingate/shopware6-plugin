@@ -36,7 +36,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "CoinGatePayment\\": "src/",
+      "CoinGatePayment\\Shopware6\\": "src/",
       "CoinGate\\": "vendor/coingate/coingate-php/lib"
     }
   }

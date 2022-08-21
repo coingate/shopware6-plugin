@@ -4,8 +4,8 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services https://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="CoinGatePayment\PaymentHandler\CoinGatePaymentHandler">
-            <argument type="service" id="CoinGatePayment\Service\ClientApiService"/>
+        <service id="CoinGatePayment\Shopware6\PaymentHandler\CoinGatePaymentHandler">
+            <argument type="service" id="CoinGatePayment\Shopware6\Service\ClientApiService"/>
             <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
             <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
             <argument type="service" id="order_transaction.repository"/>
@@ -14,24 +14,24 @@
             <tag name="shopware.payment.method.async"/>
         </service>
 
-        <service id="CoinGatePayment\Service\ClientApiService">
+        <service id="CoinGatePayment\Shopware6\Service\ClientApiService">
             <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
         </service>
 
-        <service id="CoinGatePayment\Service\OrderCancelationService">
-            <argument type="service" id="CoinGatePayment\Service\ClientApiService"/>
+        <service id="CoinGatePayment\Shopware6\Service\OrderCancelationService">
+            <argument type="service" id="CoinGatePayment\Shopware6\Service\ClientApiService"/>
             <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
             <argument type="service" id="state_machine_state.repository"/>
         </service>
 
-        <service id="CoinGatePayment\Subscriber\AccountSubscriber">
-            <argument type="service" id="CoinGatePayment\Service\OrderCancelationService"/>
+        <service id="CoinGatePayment\Shopware6\Subscriber\AccountSubscriber">
+            <argument type="service" id="CoinGatePayment\Shopware6\Service\OrderCancelationService"/>
 
             <tag name="kernel.event_subscriber"/>
         </service>
 
-        <service id="CoinGatePayment\Controller\WebhookController">
-            <argument type="service" id="CoinGatePayment\Service\ClientApiService"/>
+        <service id="CoinGatePayment\Shopware6\Controller\WebhookController">
+            <argument type="service" id="CoinGatePayment\Shopware6\Service\ClientApiService"/>
             <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
             <argument type="service" id="order_transaction.repository"/>
 

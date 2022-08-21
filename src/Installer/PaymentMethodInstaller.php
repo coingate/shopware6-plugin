@@ -2,7 +2,7 @@
 
 namespace CoinGatePayment\Shopware6\Installer;
 
-use CoinGatePayment\Shopware6\CoinGatePayment;
+use CoinGatePayment\Shopware6\CoinGatePaymentShopware6;
 use CoinGatePayment\Shopware6\PaymentHandler\CoinGatePaymentHandler;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
@@ -62,9 +62,9 @@ class PaymentMethodInstaller
 
     private function upsertPaymentMethod(Context $context): void
     {
-        $paymentMethodId = $this->getPaymentMethodId($context);
+        $paymentMethodId = $this->getPaymentMethodId();
 
-        $pluginId = $this->pluginIdProvider->getPluginIdByBaseClass(CoinGatePayment::class, $context);
+        $pluginId = $this->pluginIdProvider->getPluginIdByBaseClass(CoinGatePaymentShopware6::class, $context);
 
         $data = [
             'id' => $paymentMethodId,
@@ -86,7 +86,7 @@ class PaymentMethodInstaller
 
     private function setPaymentMethodIsActive(bool $active, Context $context): void
     {
-        $paymentMethodId = $this->getPaymentMethodId($context);
+        $paymentMethodId = $this->getPaymentMethodId();
         // Payment does not even exist, so nothing to (de-)activate here
         if (! $paymentMethodId) {
             return;
@@ -100,11 +100,11 @@ class PaymentMethodInstaller
         $this->paymentMethodRepository->update([$data], $context);
     }
 
-    private function getPaymentMethodId(Context $context): ?string
+    private function getPaymentMethodId(): ?string
     {
-        $criteria = new Criteria();
-        $criteria->addFilter(new EqualsFilter('handlerIdentifier', CoinGatePaymentHandler::class));
+        $paymentCriteria = new Criteria();
+        $paymentCriteria->addFilter(new EqualsFilter('handlerIdentifier', CoinGatePaymentHandler::class));
 
-        return $this->paymentMethodRepository->searchIds($criteria, $context)->firstId();
+        return $this->paymentMethodRepository->searchIds($paymentCriteria, Context::createdefaultContext())->firstId();
     }
 }

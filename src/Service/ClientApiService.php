@@ -29,11 +29,11 @@ class ClientApiService
     {
         $salesChannelId = $salesChannelContext->getSalesChannelId();
 
-        $isSandboxEnv = $this->systemConfigService->get('CoinGatePayment.config.isLiveMode', $salesChannelId) !== true;
+        $isSandboxEnv = $this->systemConfigService->get('CoinGatePaymentShopware6.config.isLiveMode', $salesChannelId) !== true;
 
         $apiToken = $isSandboxEnv
-            ? $this->systemConfigService->get('CoinGatePayment.config.apiTokenForSandbox', $salesChannelId)
-            : $this->systemConfigService->get('CoinGatePayment.config.apiToken', $salesChannelId);
+            ? $this->systemConfigService->get('CoinGatePaymentShopware6.config.apiTokenForSandbox', $salesChannelId)
+            : $this->systemConfigService->get('CoinGatePaymentShopware6.config.apiToken', $salesChannelId);
 
         return new \CoinGate\Client($apiToken, $isSandboxEnv);
     }

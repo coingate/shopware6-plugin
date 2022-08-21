@@ -20,7 +20,7 @@ class VerifyApiTokenController
      */
     public function check(RequestDataBag $dataBag): JsonResponse
     {
-        $liveApiToken = $dataBag->get('CoinGatePayment.config.apiToken', '');
+        $liveApiToken = $dataBag->get('CoinGatePaymentShopware6.config.apiToken', '');
 
         try {
             $liveStatus = \CoinGate\Client::testConnection($liveApiToken);
@@ -28,7 +28,7 @@ class VerifyApiTokenController
             $liveStatus = false;
         }
 
-        $sandboxApiToken = $dataBag->get('CoinGatePayment.config.apiTokenForSandbox', '');
+        $sandboxApiToken = $dataBag->get('CoinGatePaymentShopware6.config.apiTokenForSandbox', '');
 
         try {
             $sandboxStatus = \CoinGate\Client::testConnection($sandboxApiToken, true);

@@ -86,7 +86,7 @@ class CoinGatePaymentHandler implements AsynchronousPaymentHandlerInterface
                 'order_id'          => $transaction->getOrder()->getOrderNumber(),
                 'price_amount'      => $transaction->getOrderTransaction()->getAmount()->getTotalPrice(),
                 'price_currency'    => $transaction->getOrder()->getCurrency()->getIsoCode(),
-                'receive_currency'  => $this->systemConfigService->get('CoinGatePayment.config.receiveCurrency', $salesChannelContext->getSalesChannelId()) ?: 'DO_NOT_CONVERT',
+                'receive_currency'  => $this->systemConfigService->get('CoinGatePaymentShopware6.config.receiveCurrency', $salesChannelContext->getSalesChannelId()) ?: 'DO_NOT_CONVERT',
                 'callback_url'      => $this->router->generate('storefront.coingate.webhook', [], UrlGeneratorInterface::ABSOLUTE_URL),
                 'cancel_url'        => $transaction->getReturnUrl() . '&cancel=1',
                 'success_url'       => $transaction->getReturnUrl(),

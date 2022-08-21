@@ -4,13 +4,13 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInita227a830a730235ab1af7d56d9d3dd51
+class ComposerStaticInit149ec80d33a6cdc1a2bc4465ff6708bc
 {
     public static $prefixLengthsPsr4 = array (
         'C' => 
         array (
             'CoinGate\\' => 9,
-            'CoinGatePayment\\' => 16,
+            'CoinGatePayment\\Shopware6\\' => 26,
         ),
     );
 
@@ -20,7 +20,7 @@ class ComposerStaticInita227a830a730235ab1af7d56d9d3dd51
             0 => __DIR__ . '/..' . '/coingate/coingate-php/lib',
             1 => __DIR__ . '/..' . '/coingate/coingate-php/lib',
         ),
-        'CoinGatePayment\\' => 
+        'CoinGatePayment\\Shopware6\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),
@@ -33,9 +33,9 @@ class ComposerStaticInita227a830a730235ab1af7d56d9d3dd51
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInita227a830a730235ab1af7d56d9d3dd51::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInita227a830a730235ab1af7d56d9d3dd51::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInita227a830a730235ab1af7d56d9d3dd51::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit149ec80d33a6cdc1a2bc4465ff6708bc::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit149ec80d33a6cdc1a2bc4465ff6708bc::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit149ec80d33a6cdc1a2bc4465ff6708bc::$classMap;
 
         }, null, ClassLoader::class);
     }

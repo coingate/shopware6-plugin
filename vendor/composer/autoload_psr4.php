@@ -7,5 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'CoinGate\\' => array($vendorDir . '/coingate/coingate-php/lib', $vendorDir . '/coingate/coingate-php/lib'),
-    'CoinGatePayment\\' => array($baseDir . '/src'),
+    'CoinGatePayment\\Shopware6\\' => array($baseDir . '/src'),
 );

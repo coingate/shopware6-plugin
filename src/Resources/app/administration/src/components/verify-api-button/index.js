@@ -32,8 +32,6 @@ Component.register('coingate-verify-api-button', {
         check() {
             this.isLoading = true;
 
-            console.log(this.pluginConfig);
-
             this.verifyApiTokenService.check(this.pluginConfig).then(response => {
 
                 if (! response.live) {

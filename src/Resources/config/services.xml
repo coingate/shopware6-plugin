@@ -16,6 +16,7 @@
 
         <service id="CoinGatePayment\Shopware6\Service\ClientApiService">
             <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+            <argument type="service" id="plugin.repository"/>
         </service>
 
         <service id="CoinGatePayment\Shopware6\Service\OrderCancelationService">

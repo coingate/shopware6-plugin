@@ -102,9 +102,9 @@ class PaymentMethodInstaller
 
     private function getPaymentMethodId(): ?string
     {
-        $paymentCriteria = new Criteria();
-        $paymentCriteria->addFilter(new EqualsFilter('handlerIdentifier', CoinGatePaymentHandler::class));
+        $criteria = new Criteria();
+        $criteria->addFilter(new EqualsFilter('handlerIdentifier', CoinGatePaymentHandler::class));
 
-        return $this->paymentMethodRepository->searchIds($paymentCriteria, Context::createdefaultContext())->firstId();
+        return $this->paymentMethodRepository->searchIds($criteria, Context::createDefaultContext())->firstId();
     }
 }

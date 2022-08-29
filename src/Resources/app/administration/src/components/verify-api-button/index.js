@@ -35,7 +35,7 @@ Component.register('coingate-verify-api-button', {
             this.verifyApiTokenService.check(this.pluginConfig).then(response => {
 
                 if (! response.live) {
-                    if (this.pluginConfig['CoinGatePayment.config.apiToken']) {
+                    if (this.pluginConfig['CoinGatePaymentShopware6.config.apiToken']) {
                         this.createNotificationError({
                             title: "Live API Connection",
                             message: "Connection failed."
@@ -49,7 +49,7 @@ Component.register('coingate-verify-api-button', {
                 }
 
                 if (! response.sandbox) {
-                    if (this.pluginConfig['CoinGatePayment.config.apiTokenForSandbox']) {
+                    if (this.pluginConfig['CoinGatePaymentShopware6.config.apiTokenForSandbox']) {
                         this.createNotificationError({
                             title: "Sandbox API Connection",
                             message: "Connection failed."

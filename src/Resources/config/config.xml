@@ -8,14 +8,14 @@
         <input-field type="text">
             <name>apiTokenForSandbox</name>
             <label>Sandbox API Token</label>
-            <placeholder>EK3rpwEbAiPJw5scz4XigVsPE7pBR3FxPkEQ-JXb</placeholder>
+            <placeholder></placeholder>
             <helpText>Obtain your Sandbox API Token from https://sandbox.coingate.com</helpText>
         </input-field>
 
         <input-field type="text">
             <name>apiToken</name>
             <label>Live API Token</label>
-            <placeholder>EK3rpwEbAiPJw5scz4XigVsPE7pBR3FxPkEQ-JXb</placeholder>
+            <placeholder></placeholder>
             <helpText>Obtain your Live API Token from https://coingate.com</helpText>
         </input-field>
 

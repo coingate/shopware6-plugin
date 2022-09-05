@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/platform/trunk/src/Core/System/SystemConfig/Schema/config.xsd">
+
+    <card>
+        <title>API Configuration</title>
+
+        <input-field type="text">
+            <name>apiTokenForSandbox</name>
+            <label>Sandbox API Token</label>
+            <placeholder> </placeholder>
+            <helpText>Obtain your Sandbox API Token from https://sandbox.coingate.com</helpText>
+        </input-field>
+
+        <input-field type="text">
+            <name>apiToken</name>
+            <label>Live API Token</label>
+            <placeholder> </placeholder>
+            <helpText>Obtain your Live API Token from https://coingate.com</helpText>
+        </input-field>
+
+        <component name="coingate-verify-api-button">
+            <name>verifyAPIButton</name>
+        </component>
+
+        <input-field type="bool">
+            <name>isLiveMode</name>
+            <label>Enable LIVE mode</label>
+            <defaultValue>false</defaultValue>
+        </input-field>
+    </card>
+    <card>
+        <title>Advanced Configuration</title>
+
+        <input-field type="single-select">
+            <name>receiveCurrency</name>
+            <label>Receive Currency</label>
+            <helpText>Currency you want to receive when making withdrawal at CoinGate. Please take a note what if you choose EUR or USD you will be asked to verify your business before making a withdrawal at CoinGate</helpText>
+            <defaultValue>DO_NOT_CONVERT</defaultValue>
+            <options>
+                <option>
+                    <id>DO_NOT_CONVERT</id>
+                    <name>Do not convert (default)</name>
+                </option>
+                <option>
+                    <id>BTC</id>
+                    <name>BTC</name>
+                </option>
+                <option>
+                    <id>USDT</id>
+                    <name>USDT</name>
+                </option>
+                <option>
+                    <id>ETH</id>
+                    <name>ETH</name>
+                </option>
+                <option>
+                    <id>LTC</id>
+                    <name>LTC</name>
+                </option>
+                <option>
+                    <id>EUR</id>
+                    <name>EUR</name>
+                </option>
+                <option>
+                    <id>USD</id>
+                    <name>USD</name>
+                </option>
+            </options>
+        </input-field>
+    </card>
+</config>

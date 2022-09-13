@@ -1,10 +1,10 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 
 technicalName="CoinGatePaymentShopware6"
 version="$1"
 
-if [[ -z "$version" ]]; then
+if [ -z "$version" ]; then
     echo "Release version number is missing. Exiting..." 1>&2
     exit 1
 fi

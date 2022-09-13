@@ -28,7 +28,7 @@ class AccountSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         return [
-            AccountOrderPageLoadedEvent::class => "onAccountOrderPageLoaded",
+            AccountOrderPageLoadedEvent::class => 'onAccountOrderPageLoaded',
         ];
     }
 
@@ -47,22 +47,15 @@ class AccountSubscriber implements EventSubscriberInterface
      */
     public function onAccountOrderPageLoaded(AccountOrderPageLoadedEvent $args)
     {
-        /** @var OrderEntity $lastOrder */
-        $lastOrder = $args->getPage()->getOrders()->first();
+        /** @var OrderEntity $order */
+        $order = $args->getPage()->getOrders()->first();
 
-        /** @var OrderTransactionEntity $lastTransaction */
-        $lastTransaction = $lastOrder->getTransactions()->first();
+        if ($order->getStateMachineState()->getTechnicalName() == 'open') {
+            /** @var OrderTransactionEntity $lastTransaction */
+            $transaction = $order->getTransactions()->first();
 
-        if ($lastOrder->getStateMachineState()->getTechnicalName() === "open" &&
-            isset($lastTransaction->getCustomfields()[CoinGatePaymentHandler::CUSTOM_FIELD_MAPPING_NAME]) &&
-            is_numeric($lastTransaction->getCustomfields()[CoinGatePaymentHandler::CUSTOM_FIELD_MAPPING_NAME])
-        ) {
-            if ($this->orderCancelationService->shouldBeCanceled($lastTransaction, $args->getSalesChannelContext())) {
-                $this->orderCancelationService->cancel($lastTransaction, $args->getContext());
-
-                $lastOrder->getTransactions()->first()->setStateMachineState(
-                    $this->orderCancelationService->getCanceledStateMachineState($args->getContext())
-                );
+            if ($this->orderCancelationService->shouldBeCanceled($transaction, $args->getSalesChannelContext())) {
+                $this->orderCancelationService->cancel($transaction, $args->getContext());
             }
         }
     }

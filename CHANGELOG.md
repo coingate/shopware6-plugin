@@ -1,3 +1,5 @@
+# 1.0.2
+- Fixed to send a correct user-agent during API Token test
 # 1.0.1
 - Added option to toggle between pre-filling customer email on a CoinGate checkout form automatically
 # 1.0.0

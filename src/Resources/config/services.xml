@@ -43,5 +43,10 @@
             </call>
         </service>
 
+        <service id="CoinGatePayment\Shopware6\Controller\Api\VerifyApiTokenController">
+            <argument type="service" id="CoinGatePayment\Shopware6\Service\ClientApiService"/>
+
+            <tag name="controller.service_arguments"/>
+        </service>
     </services>
 </container>

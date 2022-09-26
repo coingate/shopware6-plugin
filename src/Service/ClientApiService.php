@@ -38,7 +38,7 @@ class ClientApiService
      */
     public function get(SalesChannelContext $salesChannelContext): \CoinGate\Client
     {
-        \CoinGate\Client::setAppInfo('ShopWare6 Extension', $this->getPluginVersion());
+        $this->initUserAgent();
 
         $salesChannelId = $salesChannelContext->getSalesChannelId();
         $isSandboxEnv = $this->systemConfigService->get('CoinGatePaymentShopware6.config.isLiveMode', $salesChannelId) !== true;
@@ -50,6 +50,17 @@ class ClientApiService
         return new \CoinGate\Client($apiToken, $isSandboxEnv);
     }
 
+    /**
+     * @return void
+     */
+    public function initUserAgent()
+    {
+        \CoinGate\Client::setAppInfo('ShopWare6 Extension', $this->getPluginVersion());
+    }
+
+    /**
+     * @return string|null
+     */
     private function getPluginVersion(): ?string
     {
         static $version = false;

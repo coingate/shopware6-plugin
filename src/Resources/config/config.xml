@@ -68,5 +68,12 @@
                 </option>
             </options>
         </input-field>
+
+        <input-field type="bool">
+            <name>shouldPassEmail</name>
+            <label>Send customer email to CoinGate automatically</label>
+            <defaultValue>false</defaultValue>
+            <helpText>When this feature is enabled, customer email will be pre-filled on a CoinGate checkout form automatically</helpText>
+        </input-field>
     </card>
 </config>

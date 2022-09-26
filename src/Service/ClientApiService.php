@@ -30,20 +30,6 @@ class ClientApiService
     ) {
         $this->systemConfigService = $systemConfigService;
         $this->pluginRepository = $pluginRepository;
-
-        \CoinGate\Client::setAppInfo('ShopWare6 Extension', $this->getPluginVersion());
-    }
-
-    private function getPluginVersion(): ?string
-    {
-        $criteria = new Criteria();
-        $criteria->addFilter(new EqualsFilter('baseClass', CoinGatePaymentShopware6::class));
-
-        $entity = $this->pluginRepository->search($criteria, Context::createDefaultContext())->first();
-
-        return $entity instanceof PluginEntity
-            ? $entity->version
-            : null;
     }
 
     /**
@@ -52,8 +38,9 @@ class ClientApiService
      */
     public function get(SalesChannelContext $salesChannelContext): \CoinGate\Client
     {
-        $salesChannelId = $salesChannelContext->getSalesChannelId();
+        \CoinGate\Client::setAppInfo('ShopWare6 Extension', $this->getPluginVersion());
 
+        $salesChannelId = $salesChannelContext->getSalesChannelId();
         $isSandboxEnv = $this->systemConfigService->get('CoinGatePaymentShopware6.config.isLiveMode', $salesChannelId) !== true;
 
         $apiToken = $isSandboxEnv
@@ -61,5 +48,23 @@ class ClientApiService
             : $this->systemConfigService->get('CoinGatePaymentShopware6.config.apiToken', $salesChannelId);
 
         return new \CoinGate\Client($apiToken, $isSandboxEnv);
+    }
+
+    private function getPluginVersion(): ?string
+    {
+        static $version = false;
+
+        if ($version === false) {
+            $criteria = new Criteria();
+            $criteria->addFilter(new EqualsFilter('baseClass', CoinGatePaymentShopware6::class));
+
+            $entity = $this->pluginRepository->search($criteria, Context::createDefaultContext())->first();
+
+            $version = $entity instanceof PluginEntity
+                ? $entity->version
+                : null;
+        }
+
+        return $version;
     }
 }

@@ -92,7 +92,7 @@ class CoinGatePaymentHandler implements AsynchronousPaymentHandlerInterface
                 'success_url'       => $transaction->getReturnUrl(),
                 'title'             => 'Order #' . $transaction->getOrder()->getOrderNumber(),
                 'description'       => sprintf("%s - %s %s (number: %s)", $salesChannelContext->getSalesChannel()->getName(), $customer->getFirstName(), $customer->getLastName(), $customer->getCustomerNumber()),
-                'purchaser_email'   => $customer->getEmail()
+                'purchaser_email'   => $this->systemConfigService->get('CoinGatePaymentShopware6.config.shouldPassEmail', $salesChannelContext->getSalesChannelId()) ? $customer->getEmail() : ''
             ]);
 
             // map ShopWare Order ID with CoinGate Order ID

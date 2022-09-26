@@ -65,13 +65,13 @@ class OrderCancelationService
 
             $order = $client->order->get($coingateOrderId);
 
-            //Newly created invoice. The shopper has not yet selected payment currency.
-            if ($order->status === "new") {
+            // Newly created invoice. The shopper has not yet selected payment currency.
+            if ($order->status === 'new') {
                 return true;
             }
 
-            //Shopper selected payment currency. Awaiting payment.
-            if ($order->status === "pending") {
+            // Shopper selected payment currency. Awaiting payment.
+            if ($order->status === 'pending') {
                 return true;
             }
 
@@ -88,16 +88,20 @@ class OrderCancelationService
     public function cancel(OrderTransactionEntity $transaction, Context $context)
     {
         $this->orderTransactionStateHandler->cancel($transaction->getId(), $context);
+
+        $transaction->setStateMachineState(
+            $this->getCanceledStateMachineState($context)
+        );
     }
 
     /**
      * @param Context $context
      * @return mixed|null
      */
-    public function getCanceledStateMachineState(Context $context)
+    private function getCanceledStateMachineState(Context $context)
     {
         $criteria = new Criteria();
-        $criteria->addFilter(new EqualsFilter("technicalName", "cancelled"));
+        $criteria->addFilter(new EqualsFilter('technicalName', 'cancelled'));
 
         return $this->stateMachineStateRepository->search($criteria, $context)->first();
     }

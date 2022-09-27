@@ -55,7 +55,7 @@ class ClientApiService
      */
     public function initUserAgent()
     {
-        \CoinGate\Client::setAppInfo('ShopWare6 Extension', $this->getPluginVersion());
+        \CoinGate\Client::setAppInfo('ShopWare6', $this->getPluginVersion());
     }
 
     /**

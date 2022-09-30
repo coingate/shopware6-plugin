@@ -1,7 +1,7 @@
 {
   "name": "coingate/shopware6-plugin",
   "description": "CoinGate Payment gateway integration for Shopware 6",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "type": "shopware-platform-plugin",
   "extra": {
     "shopware-plugin-class": "CoinGatePayment\\Shopware6\\CoinGatePaymentShopware6",
